@@ -44,7 +44,6 @@ public class Node {
         this.bandwidth = bandwidth;
         this.country = country;
         this.exitPolicy = exitPolicy;
-        //###########################################################
         if (family != null) {
             this.family = Arrays.copyOf(family, family.length);
         } else {
@@ -77,7 +76,7 @@ public class Node {
     public void setBandwidth(int bandwidth) {this.bandwidth = bandwidth;}
     public void setCountry(String country) {this.country = country;}
     public void setExitPolicy(String exitPolicy) {this.exitPolicy = exitPolicy;}
-    //#################################################
+    
     public void setFamily(String[] family) {
         if (family != null) {
             this.family = Arrays.copyOf(family, family.length);
