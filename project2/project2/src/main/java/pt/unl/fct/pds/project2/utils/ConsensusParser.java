@@ -1,21 +1,19 @@
 package pt.unl.fct.pds.project2.utils;
 
-import pt.unl.fct.pds.project2.model.Node;
+import com.maxmind.geoip2.DatabaseReader;
+import com.maxmind.geoip2.exception.GeoIp2Exception;
+import com.maxmind.geoip2.model.CountryResponse;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-//import do geoip
-import java.io.File;
-import java.net.InetAddress;
-import com.maxmind.geoip2.DatabaseReader;
-import com.maxmind.geoip2.exception.GeoIp2Exception;
-import com.maxmind.geoip2.model.CountryResponse;
+import pt.unl.fct.pds.project2.model.Node;
 
 //import do metric
 // import org.torproject.metrics.descriptor.DescriptorSource;

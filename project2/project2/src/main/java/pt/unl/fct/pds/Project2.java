@@ -1,10 +1,5 @@
 package pt.unl.fct.pds;
 
-import pt.unl.fct.pds.project2.model.Node;
-import pt.unl.fct.pds.project2.model.Circuit;
-import pt.unl.fct.pds.project2.utils.ConsensusParser;
-import pt.unl.fct.pds.project2.utils.Metrics;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,6 +7,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
+import pt.unl.fct.pds.project2.model.Circuit;
+import pt.unl.fct.pds.project2.model.Node;
+import pt.unl.fct.pds.project2.utils.ConsensusParser;
+import pt.unl.fct.pds.project2.utils.Metrics;
 
 public class Project2 
 {
@@ -40,7 +39,14 @@ public class Project2
             return;
         }
         System.out.println("Loaded " + allNodes.length + " nodes\n");
-        
+
+        //debug - mostra os 5 primeiros nodes com o country
+        System.out.println("DEBUG: Checking first 5 nodes for country data...");
+        for (int i = 0; i < Math.min(5, allNodes.length); i++) {
+             System.out.println("IP: " + allNodes[i].getIpAddress() + " - Country: " + allNodes[i].getCountry());
+        }
+        System.out.println("--------------------------------------------------\n");
+        //fim do debug
         List<Node> nodeList = new ArrayList<>(Arrays.asList(allNodes));
 
         //algoritmo1
@@ -250,7 +256,7 @@ public class Project2
 
         //escolhe um middle node
         List<Node> middleCandidates = allNodes.stream()
-            .filter(n -> !n.getFingerprint().equals(exit.getFingerprint()) && n.getFingerprint().equals(guard.getFingerprint()))
+            .filter(n -> !n.getFingerprint().equals(exit.getFingerprint()) && !n.getFingerprint().equals(guard.getFingerprint()))
             //restrições
             .filter(n -> !sharesFamily(n, exit))
             .filter(n -> !sharesFamily(n, guard))
